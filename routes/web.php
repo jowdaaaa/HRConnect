@@ -17,6 +17,11 @@ Route::controller(LoginController::class)->group(function () {
 
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin-dashboard', 'adminDashboard');
+    Route::get('/admin-census', 'census');
+    Route::get('/admin-task', 'tasks');
+    Route::get('/admin-messages', 'messages');
+    Route::get('/admin-events', 'events');
+    Route::get('/admin-accounts', 'accounts');
 });
 
 Route::controller(EmployeeController::class)->group(function () {

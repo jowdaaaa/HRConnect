@@ -14,9 +14,6 @@
     @endphp
     <div class="p-6 border-b border-gray-200">
         <div class="flex flex-col items-center">
-            <div class="w-16 h-16 rounded-full overflow-hidden border-4 border-[#009944] shadow-md mb-3">
-                <img src="{{ asset('images/user.png') }}" alt="User Avatar" class="w-full h-full object-cover">
-            </div>
             <span class="text-sm font-bold text-gray-900">
                 {{ $navUsername }}
             </span>
@@ -29,13 +26,38 @@
     <!-- Navigation Menu -->
     @php
         $isDashboard = request()->is('admin-dashboard');
+        $isCensus    = request()->is('admin-census*');
+        $isTasks     = request()->is('admin-task*');
+        $isMessages  = request()->is('admin-messages*');
+        $isEvents    = request()->is('admin-events*');
+        $isAccounts  = request()->is('admin-accounts*');
     @endphp
     <nav class="flex-1 px-4 py-6 overflow-y-auto">
         <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider px-3 mb-3">MENU</h2>
         
         <a href="/admin-dashboard" class="flex items-center px-4 py-3 rounded-xl transition-all group {{ $isDashboard ? 'bg-green-50 text-[#009944] font-bold' : 'text-gray-500 font-semibold hover:bg-gray-50 hover:text-[#009944]' }}">
-            <i class="fas fa-th-large mr-3 text-lg w-5 text-center {{ $isDashboard ? 'text-[#009944]' : 'text-gray-400 group-hover:text-[#009944]' }}" aria-hidden="true"></i>
+            <i class="fas fa-gauge-high mr-3 text-lg w-5 text-center {{ $isDashboard ? 'text-[#009944]' : 'text-gray-400 group-hover:text-[#009944]' }}" aria-hidden="true"></i>
             Dashboard
+        </a>
+        <a href="/admin-census" class="flex items-center px-4 py-3 rounded-xl transition-all group {{ $isCensus ? 'bg-green-50 text-[#009944] font-bold' : 'text-gray-500 font-semibold hover:bg-gray-50 hover:text-[#009944]' }}">
+            <i class="fas fa-chart-bar mr-3 text-lg w-5 text-center {{ $isCensus ? 'text-[#009944]' : 'text-gray-400 group-hover:text-[#009944]' }}" aria-hidden="true"></i>
+            Census
+        </a>
+        <a href="/admin-task" class="flex items-center px-4 py-3 rounded-xl transition-all group {{ $isTasks ? 'bg-green-50 text-[#009944] font-bold' : 'text-gray-500 font-semibold hover:bg-gray-50 hover:text-[#009944]' }}">
+            <i class="fas fa-list-check mr-3 text-lg w-5 text-center {{ $isTasks ? 'text-[#009944]' : 'text-gray-400 group-hover:text-[#009944]' }}" aria-hidden="true"></i>
+            Tasks
+        </a>
+        <a href="/admin-messages" class="flex items-center px-4 py-3 rounded-xl transition-all group {{ $isMessages ? 'bg-green-50 text-[#009944] font-bold' : 'text-gray-500 font-semibold hover:bg-gray-50 hover:text-[#009944]' }}">
+            <i class="fas fa-envelope mr-3 text-lg w-5 text-center {{ $isMessages ? 'text-[#009944]' : 'text-gray-400 group-hover:text-[#009944]' }}" aria-hidden="true"></i>
+            Messages
+        </a>
+        <a href="/admin-events" class="flex items-center px-4 py-3 rounded-xl transition-all group {{ $isEvents ? 'bg-green-50 text-[#009944] font-bold' : 'text-gray-500 font-semibold hover:bg-gray-50 hover:text-[#009944]' }}">
+            <i class="fas fa-calendar-alt mr-3 text-lg w-5 text-center {{ $isEvents ? 'text-[#009944]' : 'text-gray-400 group-hover:text-[#009944]' }}" aria-hidden="true"></i>
+            Events Calendar
+        </a>
+        <a href="/admin-accounts" class="flex items-center px-4 py-3 rounded-xl transition-all group {{ $isAccounts ? 'bg-green-50 text-[#009944] font-bold' : 'text-gray-500 font-semibold hover:bg-gray-50 hover:text-[#009944]' }}">
+            <i class="fas fa-users-cog mr-3 text-lg w-5 text-center {{ $isAccounts ? 'text-[#009944]' : 'text-gray-400 group-hover:text-[#009944]' }}" aria-hidden="true"></i>
+            Manage Accounts
         </a>
     </nav>
 
